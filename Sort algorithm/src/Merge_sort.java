@@ -1,26 +1,29 @@
 import java.util.*;
 public class Merge_sort {
 	private void merge(int[] arr, int l, int mid, int r) {
-		int[] aux = Arrays.copyOfRange(arr, l, r+1);
 		/*
 		Initialize, i point to left starting position, j point to right
 		start point mid + 1
 		*/
-		int i = l, j = mid + 1;
+		int[] aux = new int[r-l+1];
+		for(int i = l; i <= r; i++) {
+			aux[i-l] = arr[i];
+		}
+		int lt = l;
+		int rt = mid + 1;
 		for(int k = l; k <= r; k++) {
-			if(i > mid) {//if the left part is finished
-				arr[k] = aux[j-l];
-				j++;
-			} else if(j > r) {//if right part is finished
-				arr[k] = aux[i-l];
-				i++;
-			} else if(aux[i-l] < aux[j-l]) {
-				/*if left part is smaller than right part*/
-				arr[k] = aux[i-l];
-				i++;
+			if(lt > mid) {
+				arr[k] = aux[rt-l];
+				rt++;
+			} else if(rt > r) {
+				arr[k] = aux[lt-l];
+				lt++;
+			} else if(aux[lt-l] < aux[rt-l]) {
+				arr[k] = aux[lt-l];
+				lt++;
 			} else {
-				arr[k] = aux[j-l];
-				j++;
+				arr[k] = aux[rt-l];
+				rt++;
 			}
 		}
 	}

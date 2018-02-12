@@ -1,10 +1,11 @@
-
 public class Bottom_up_merge_sort {
 	private void mergeSortBU(int[] arr, int n) {
-		for(int sz = 1; sz < n; sz+= sz) {
-			for(int i = 0; i <n - sz; i += sz+sz) {
-				//Merge arr[i...i+sz-1] and arr[i+sz...i+2*sz-1]
-				sort(arr, i, i+sz-1, Math.min(i+sz+sz-1, n-1));
+		for(int sz = 1; sz < n; sz +=sz) {
+			//1,2,4,8.....n
+			for(int i = 0; i+sz<n; i += sz+sz) {
+				//i+sz, the second part, we need garantee it exists, so i+sz<n.
+				//Merge left=i, mid = i+sz-1, right=i+sz+sz-1;
+				sort(arr, i, i + sz - 1, Math.min(i+sz+sz-1, n-1));
 			}
 		}
 	}

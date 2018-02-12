@@ -1,8 +1,8 @@
 
 public class Bottom_up_merge_sort {
 	private void mergeSortBU(int[] arr, int n) {
-		for(int sz = 1; sz <= n; sz+= sz) {
-			for(int i = 0; i + sz <n; i += sz+sz) {
+		for(int sz = 1; sz < n; sz+= sz) {
+			for(int i = 0; i <n - sz; i += sz+sz) {
 				//Merge arr[i...i+sz-1] and arr[i+sz...i+2*sz-1]
 				sort(arr, i, i+sz-1, Math.min(i+sz+sz-1, n-1));
 			}
@@ -33,8 +33,8 @@ public class Bottom_up_merge_sort {
 	}
 	public static void main(String[] args) {
 		Bottom_up_merge_sort test = new Bottom_up_merge_sort();
-		int[] arr = new int[] {1,2,6,3,1,7,2,8};
-		test.mergeSortBU(arr, arr.length-1);
+		int[] arr = new int[] {1,6,7,8,2};
+		test.mergeSortBU(arr, arr.length);
 		for(int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i]+" ");
 		}

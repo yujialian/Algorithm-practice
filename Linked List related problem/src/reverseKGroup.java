@@ -19,7 +19,7 @@ class Solution {
         }
         return dumb.next;
     }
-    public ListNode reverse(ListNode begin, ListNode end) {
+    private ListNode reverse(ListNode begin, ListNode end) {
         ListNode curr = begin.next;
         ListNode next, first;
         ListNode prev = begin;
@@ -36,23 +36,22 @@ class Solution {
     }
 }
 
-
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
         ListNode curr = head;
         int count = 0;
-        while(curr != null && count != k) {
+        while(curr != null && count != k) {//find the k+1 node
             curr = curr.next;
             count++;
         }
-        if(count == k) {
-            curr = reverseKGroup(curr, k);
-            while(count > 0) {
+        if(count == k) {// if k+1 node is found
+            curr = reverseKGroup(curr, k);// reverse list with k+1 node as head
+            while(count > 0) {// reverse current k-group: 
                 count--;
-                ListNode temp = head.next;
-                head.next = curr;
-                curr = head;
-                head = temp;
+                ListNode temp = head.next;// tmp - next head in direct part
+                head.next = curr;// preappending "direct" head to the reversed list 
+                curr = head;// move head of reversed part to a new node
+                head = temp;// move "direct" head to the next node in direct part
             }
             head = curr;
         }

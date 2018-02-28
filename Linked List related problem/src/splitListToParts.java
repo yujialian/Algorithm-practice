@@ -8,27 +8,23 @@ class Solution {
         }
         int NumEachEle = length / k;
         int remainEle = length % k;
-        int[] karr = new int[k];
-        for(int i = 0; i < karr.length; i++) {
-            karr[i] = NumEachEle;
-        }
-        int index = 0;
-        while(remainEle != 0) {
-            karr[index] = karr[index] + 1;
-            remainEle--;
-            index++;
-        }
         ListNode dummy = new ListNode(0);
         dummy.next = root;
         ListNode pointer = root;
         ArrayList<ListNode> arrList = new ArrayList<>();
-        for(int i = 0; i < karr.length; i++) {
-            int idx = karr[i];
+        for(int i = 0; i < k; i++) {
+            int idx = NumEachEle;
             ListNode current = dummy;
             while(idx != 0) {
                 current = current.next;
-                idx--;
+                idx--;   
             }
+            
+            if(remainEle != 0) {
+                current = current.next;
+                remainEle--;
+            }
+            
             ListNode remain = current.next;
             current.next = null;
             arrList.add(dummy.next);

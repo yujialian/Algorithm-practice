@@ -14,3 +14,13 @@ class Solution {
         return false;
     }
 }
+
+//A square number is 1+3+5+7+..., JAVA code
+public boolean iPerfectSqure(int num) {
+	int idx = 1;
+	while(num > 0) {
+		num -= idx;
+		idx += 2;
+	}
+	return num == 0;
+}

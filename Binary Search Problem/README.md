@@ -32,5 +32,13 @@
     add middle to parent and make those 2 nodes as its child.
     If there is overflow in parent, split it, we continue till no overflow occurs or root itself splits.
     
+
+# B+ tree:
+    All data is stored in the leaf nodes.
+    Every leaf is at same level.(Tree is always equalized.)
+    All leaf nodes have linked to other leaf nodes.(Douby linked)
+    Have all the leaf nodes on the same level, easy for range query.
+    
+    
     
     

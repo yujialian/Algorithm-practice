@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>This is cs50!</title>
+  <style>
+  /*Create a media query, I want to apply css style,
+  but only in particular situation.*/
+    @media print {
+      .screen-only {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <p>
+    This is a paragraph.
+  </p>
+  <p>
+    This is another paragraph.
+  </p>
+  <p class="screen-only">
+    this is a paragraph that only going to be show up on the computer screens.
+  </p>
+</body>
+</html>

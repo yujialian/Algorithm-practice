@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My web page!</title>
+    <style>
+    /*I want to apply some styling that happens before
+    the contents of the actual link.*/
+      a::before {
+        /*Before the content of the link,
+        add below particular content.*/
+        content: "\21d2 Click me: ";
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>
+        <a href="#">one link</a>
+
+      </li>
+      <li>
+
+        <a href="#">two link</a>
+
+      </li>
+      <li>
+
+        <a href="#">three link</a>
+      </li>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My webpage!</title>
+  </head>
+  <body>
+    <form>
+      <div>
+        <input name="name" type="text" placeholder="Name" >
+        <input name="password" type="password" placeholder="Password" >
+      </div>
+      <div>
+        Favoriate color?
+        <input name="color" type="radio" value="red">Red
+        <input name="color" type="radio" value="green">Green
+        <input name="color" type="radio" value="blue">Blue
+        <input name="color" type="radio" value="other">Other
+      </div>
+      <div>
+        <input name="country" list="countries" placeholder="Country">
+        <!-- A list of datalist options that will populate this form. -->
+        <datalist id="countries">
+          <option value="Afghanistan">
+          <option value="ASIA">
+          <option value="USA">
+          <option value="KOREA">
+          <option value="JAPAN">
+            <option value="Afghanistan1">
+            <option value="ASIA1">
+            <option value="USA1">
+            <option value="KOREA1">
+            <option value="JAPAN1">
+        </datalist>
+      </div>
+    </form>
+  </body>
+</html>

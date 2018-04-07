@@ -46,15 +46,42 @@ class Solution {
         }
         if(count == k) {// if k+1 node is found
             curr = reverseKGroup(curr, k);// reverse list with k+1 node as head
-            while(count > 0) {// reverse current k-group: 
+            while(count > 0) {// reverse current k-group:
                 count--;
                 ListNode temp = head.next;// tmp - next head in direct part
-                head.next = curr;// preappending "direct" head to the reversed list 
+                head.next = curr;// preappending "direct" head to the reversed list
                 curr = head;// move head of reversed part to a new node
                 head = temp;// move "direct" head to the next node in direct part
             }
             head = curr;
         }
         return head;
+    }
+}
+
+
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode tail = dummy, prev = dummy, temp;
+        while(true) {
+            int n = k;
+            while(n != 0 && tail != null) {
+                tail = tail.next;
+                n--;
+            }
+            if(tail == null) break;
+            head = prev.next;
+            while(prev.next != tail) {
+                temp = prev.next;
+                prev.next = temp.next;
+                temp.next = tail.next;
+                tail.next = temp;
+            }
+            prev = head;
+            tail = head;
+        }
+        return dummy.next;
     }
 }

@@ -3,7 +3,7 @@ public class quickSort {
     int v = arr[l];
     int j = l;
     for(int i = l+1; i <= r; i++) {
-      if(arr[j] < v) {
+      if(arr[i] < v) {
         swap(arr, ++j, i);
       }
     }
@@ -12,7 +12,7 @@ public class quickSort {
   }
   public void sort(int[] arr, int l, int r) {
     if(l >= r) return;
-    int p = partition(arr, l, p-1);
+    int p = partition(arr, l, r);
     sort(arr, l, p-1);
     sort(arr, p+1, r);
   }

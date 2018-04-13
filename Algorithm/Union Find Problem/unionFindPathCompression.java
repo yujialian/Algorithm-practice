@@ -8,7 +8,7 @@ public class unionFindPathCompression {
     return find(i) == find(j);
   }
   public int find(int i) {
-    if(i < 0 || i >= n) return;
+    if(i < 0 || i >= n) return -1;
     while(i != parent[i]) {
       parent[i] = parent[parent[i]];
       i = parent[i];
@@ -16,7 +16,11 @@ public class unionFindPathCompression {
     return i;
   }
   public int improvedFind(int i) {
-    
+    if(i < 0 || i >= n) return -1;
+    if(i != parent[i]) {
+      parent[i] = improvedFind(parent[i]);
+    }
+    return parent[i];
   }
   public void union(int p, int q) {
     int pindex = find(p);

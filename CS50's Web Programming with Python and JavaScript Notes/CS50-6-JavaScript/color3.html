@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('#color-change').onchange = function() {
+        document.querySelector('#hello').style.color = this.value;
+        //this: whatever the select drop down is. which is based on the function which is defined,
+        //this will only be bound to the thing that been called function on:
+        //document.querySelector('#hello').style.color, the function must be traditional function.
+        //Can not use arrow function if we use this, this will be whatever the codes that enclosing the
+        //arrow function.
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1 id="hello">Hello!</h1>
+  <select id="color-change">
+    <option value="black">Black</option>
+    <option value="red">Red</option>
+    <option value="blue">Blue</option>
+    <option value="green">Green</option>
+  </select>
+</body>
+</html>

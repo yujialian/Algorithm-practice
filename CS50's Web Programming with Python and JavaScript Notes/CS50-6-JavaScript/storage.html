@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  // Set start value of counter to 0
+    if(!localStorage.getItem('counter'))
+      localStorage.setItem('counter', 0);
+    // Load current value of counter
+    document.addEventListener('DOMContntLoaded', ()=>{
+      document.querySelector('#counter').innerHTML = localStorage.getItem('counter');
+      document.querySelector('button').onclick = () => {
+        let counter = localStorage.getItem('counter');
+        counter++;
+        //update counter
+        document.querySelector('#counter').innerHTML = counter;
+        localStorage.setItem('counter', counter);
+      }
+    })
+  </script>
+  <title>cs 50</title>
+</head>
+<body>
+  <h1 id="counter"></h1>
+  <button>Click here</button>
+</body>
+</html>

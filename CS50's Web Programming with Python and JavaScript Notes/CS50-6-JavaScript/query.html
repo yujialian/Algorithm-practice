@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    function hello() {
+      document.querySelector('h1').innerHTML = 'goodbye!';
+      // Document: The web document we currently displaying.
+      // QuerySelector: Allow us to search through the contents of the webpage for particular CSS selector.(First one if multiple appears.)
+      // Innerhtml property: The content in between h1 tag.
+    }
+  </script>
+  <title>CS 50!</title>
+</head>
+<body>
+  <h1>Welcome!</h1>
+  <button onclick="hello()">Click me!</button>
+</body>
+</html>

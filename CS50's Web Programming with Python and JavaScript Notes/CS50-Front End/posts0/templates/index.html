@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Webpage</title>
+        <style>
+            .post {
+                background-color: #77dd11;
+                padding: 20px;
+                margin: 10px;
+            }
+
+            body {
+                padding-bottom: 50px;
+            }
+        </style>
+        <script>
+
+            // Start with first post.
+            let counter = 1;
+
+            // Load posts 20 at a time.
+            const quantity = 20;
+
+            // When DOM loads, render the first 20 posts.
+            document.addEventListener('DOMContentLoaded', load);
+
+            // If scrolled to bottom, load the next 20 posts.
+            window.onscroll = () => {
+                console.log("scrolling!");
+                if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                  console.log("scrolling and loading!");
+                    load();
+                }
+            };
+
+            // Load next set of posts.
+            function load() {
+                console.log("begining")
+                // Set start and end post numbers, and update counter.
+                const start = counter;
+                const end = start + quantity - 1;
+                counter = end + 1;
+
+                // Open new request to get new posts.
+                const request = new XMLHttpRequest();
+                console.log("pre")
+                request.open('POST', '/posts');
+                console.log("post")
+                request.onload = () => {//请求成功完成
+                    const data = JSON.parse(request.responseText);
+                    console.log("length: "+data.length)
+                    data.forEach(add_post);
+                };
+
+                // Add start and end points to request data.
+                const data = new FormData();
+                console.log("到底下了卧槽。")
+                data.append('start', start);
+                data.append('end', end);
+                console.log("start:"+start+" end:" + end)
+                // Send request.
+                request.send(data);
+            };
+
+            // Add a new post with given contents to DOM.
+            function add_post(contents) {
+
+                // Create new post.
+                const post = document.createElement('div');
+                post.className = 'post';
+                post.innerHTML = contents;
+
+                // Add post to DOM.
+                document.querySelector('#posts').append(post);
+            };
+        </script>
+    </head>
+    <body>
+        <div id="posts">
+        </div>
+    </body>
+</html>

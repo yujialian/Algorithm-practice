@@ -70,6 +70,7 @@ public class max_heap {
   }
   public static void main(String[] args) {
     max_heap heap = new max_heap(10);
+    System.out.println("" + heap.getClass());
     heap.insert(6);
     heap.insert(10);
     heap.insert(1);
@@ -85,4 +86,14 @@ public class max_heap {
       System.out.println(heap.extractMax());
     }
   }
+
+
+  public Person(String name, House house) {
+    this.name = name;
+    this.house = new House(house.)
+  }
+
+
+
+
 }

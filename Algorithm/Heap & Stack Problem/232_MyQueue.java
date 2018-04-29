@@ -6,7 +6,6 @@ class MyQueue {
         inStack = new Stack<>();
         outStack = new Stack<>();
     }
-
     /** Push element x to the back of queue. */
     public void push(int x) {
         while(!outStack.isEmpty()) {

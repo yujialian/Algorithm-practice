@@ -86,14 +86,8 @@ public class max_heap {
       System.out.println(heap.extractMax());
     }
   }
-
-
   public Person(String name, House house) {
     this.name = name;
     this.house = new House(house.)
   }
-
-
-
-
 }

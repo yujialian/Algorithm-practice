@@ -12,7 +12,6 @@ public class denseGraph {
   }
   public int V() {return n;} //return number of vertices
   public int E() {return m;} //return number of edges
-
   public void addEdge(int v, int w) {
     assert(v >= 0 && v < n);
     assert(w >= 0 && w < n);
@@ -30,7 +29,6 @@ public class denseGraph {
     assert(w >= 0 && w < n);
     return g[v][w];
   }
-  
   //Return certain versice's all adjacent edges.
   //Because of java's reference mechanism, return a vector does not take addtional space.
   public Iterable<Integer> adj(int v) {

@@ -6,7 +6,6 @@
             document.addEventListener('DOMContentLoaded', () => {
                 // Start by loading first page.
                 load_page('first');
-
                 // Set links up to load new pages.
                 document.querySelectorAll('.nav-link').forEach(link => {
                     link.onclick = () => {
@@ -25,7 +24,6 @@
                 };
                 request.send();//request.send()
             }
-
         </script>
     </head>
     <body>

@@ -8,7 +8,6 @@ Scheduled time: 5/1/2018 16:00 UTC+0800
 // "abcd" => ["a", "b", "c", "d"]
 // "abcbetrtyrty" => ["a", "bcb"]
 // "aabb"
-
 public void find(String s) {
     HashMap<Character, Integer> map = new HashMap<>();
     for(int i = 0; i < s.length(); i++) {

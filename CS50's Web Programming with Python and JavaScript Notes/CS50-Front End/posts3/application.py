@@ -10,9 +10,11 @@ def index():
 
 @app.route("/posts", methods=["POST"])
 def posts():
+
     # Get start and end point for posts to generate.
-    start = int(request.form.get("start") or 1)
-    end = int(request.form.get("end") or 9)
+    start = int(request.form.get("start") or 0)
+    end = int(request.form.get("end") or (start + 9))
+
     # Generate list of posts.
     data = []
     for i in range(start, end + 1):

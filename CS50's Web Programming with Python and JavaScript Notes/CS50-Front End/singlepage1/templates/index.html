@@ -3,7 +3,6 @@
     <head>
         <title>My Webpage</title>
         <script>
-
             document.addEventListener('DOMContentLoaded', () => {
 
                 // Start by loading first page.
@@ -18,7 +17,6 @@
                     };
                 });
             });
-
             // Renders contents of new page in main view.
             function load_page(name) {
                 const request = new XMLHttpRequest();
@@ -26,11 +24,13 @@
                 request.onload = () => {
                     const response = request.responseText;
                     document.querySelector('#body').innerHTML = response;
-
                     // Push state to URL.
                     document.title = name;
                     history.pushState(null, name, name);
-                    //push a new url   1 arg:  2 arg: title of page. 3 arg: url we try to push
+                    //when click back button, pop current off the top of the stack, now we left
+                    //with second, that's going to trigger on pop state event.
+
+                    //push a new url: 1 arg: 2. arg: title of page. 3 arg: url we try to push
                 };
                 request.send();
             }

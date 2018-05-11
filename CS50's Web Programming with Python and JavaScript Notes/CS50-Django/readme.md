@@ -45,3 +45,8 @@ Django shell:
 ```
 python manage.py shell
 ```
+Admin interface:
+```
+User interface that can add and manipulate data inside the database.
+Dealing and manipulating data. Update existing models.
+```

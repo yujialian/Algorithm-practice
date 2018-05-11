@@ -15,6 +15,7 @@
                 {% for passenger in passengers %}
                     <li>{{ passenger }}</li>
                 {% empty %}
+                <!-- django's empty tag: if empty? -->
                     <li>No passengers</li>
                 {% endfor %}
             </ul>
@@ -24,6 +25,7 @@
         <h2>Add a Passenger</h2>
         <form action="{% url 'book' flight.id %}" method="post">
             {% csrf_token %}
+            <!-- When the form is submit, the token is submit along with it -->
             <select name="passenger">
                 {% for passenger in non_passengers %}
                     <option value="{{ passenger.id }}">{{ passenger }}</option>

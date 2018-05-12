@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    db:
+        image: postgres
+    migration:
+        build: . #Current directory
+        command: python3 manage.py migrate #what command run to make the service happen
+        volumes: #Link between different files
+            - .:/usr/src/app #app directory: where docker file is running
+        depends_on:
+            - db #what should be done first before actually running on the service, I need db service running before do migration.
+    web:
+        build: .
+        command: python3 manage.py runserver 0.0.0.0:8000
+        volumes:
+            - .:/usr/src/app
+        ports:
+            - "8000:8000"  #take port 8000 that running inside the container map it to port 8000 on my computer
+        depends_on:
+            - db  ##make sure database is there, make sure migration is over
+            - migration
